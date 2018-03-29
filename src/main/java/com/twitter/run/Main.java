@@ -14,7 +14,8 @@ import twitter4j.TwitterFactory;
 public class Main {	
 	
 	public static void main(String[] args) throws TwitterException {
-		Search.SearchWithWord("Overwatch");
+		Search.showOnlyVerifiedUsers("elonmusk");
+//		Search.SearchWithWord("Overwatch");
 //		CreateTweet tweet = new CreateTweet();
 //		tweet.createTweet("Test");
 //		String id = "079707";

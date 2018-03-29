@@ -65,4 +65,22 @@ public class Search {
 		System.out.println("Terminé");
 		System.exit(0);
 	}
+	
+	public static void showOnlyVerifiedUsers(String name) throws TwitterException{
+		ExecutionTimer exe = new ExecutionTimer();
+		exe.ExecutionTimerDebut();
+		int page = 1;
+		ResponseList<User> verifiedUsers;
+		verifiedUsers = connection.searchUsers(name, page);
+		for(User user : verifiedUsers){
+			if(user!=null && user.isVerified()==true){
+				System.out.println("@"+user.getScreenName()+ " (il s'agit du compte officiel de "+ user.getName()+" )");
+			}
+			page++;
+		}while(verifiedUsers.size()!=0 && page<5);
+		System.out.println("Recherche terminé");
+		exe.ExecutionTimerEnd();
+		System.exit(0);
+		
+	}
 }
